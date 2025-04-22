@@ -9,6 +9,10 @@ RSpec.describe District, type: :model do
     expect(FactoryBot.build(:district, name: nil)).to be_invalid
   end
 
+  it "is invalid without a region" do
+    expect(FactoryBot.build(:district, region: nil)).to be_invalid
+  end
+
   it "has valid associations" do
     expect(FactoryBot.build(:district).region).to be_a(Region)
   end
