@@ -26,13 +26,13 @@ RSpec.describe "Regions", type: :request do
       it "returns the correct number of regions" do
         get regions_path(format: :json)
         json_response = JSON.parse(response.body)
-        expect(json_response.size).to eq(regions.size)
+        expect(json_response['data'].size).to eq(regions.size)
       end
 
       it "returns the correct attributes" do
         get regions_path(format: :json)
         json_response = JSON.parse(response.body)
-        expect(json_response.first.keys).to include("id", "name")
+        expect(json_response['data'].first['attributes'].keys).to include("name")
       end
     end
   end
