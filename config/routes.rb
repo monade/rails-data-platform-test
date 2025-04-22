@@ -11,4 +11,11 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
+
+  resource :regions, defaults: { format: :html } do
+    collection do
+      get :index, defaults: { format: :html }
+      get :index, defaults: { format: :json }
+    end
+  end
 end
