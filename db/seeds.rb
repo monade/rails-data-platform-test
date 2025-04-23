@@ -49,7 +49,7 @@ owners.each do |owner|
       :data_point,
       owner: owner,
       data_source: data_sources.sample,
-      detected_at: Time.current + i.hours,
+      detected_at: Time.current + i.hours + rand(0..59).minutes,
       value: rand(1.0..100.0)
     )
   end
