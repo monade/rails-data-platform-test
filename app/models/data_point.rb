@@ -2,6 +2,10 @@ class DataPoint < ApplicationRecord
   belongs_to :data_source
   belongs_to :owner
 
+  scope :in_date_range, ->(start_date, end_date) {
+    where(detected_at: start_date..end_date)
+  }
+
   scope :from_source, ->(source) {
     if source.is_a?(DataSource)
       where(data_source: source)
