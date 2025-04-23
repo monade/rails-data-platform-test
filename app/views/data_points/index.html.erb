@@ -1,1 +1,37 @@
-<%= line_chart @data_points.pluck(:detected_at, :value) %>
+<div data-controller="date-range">
+  <div class="mb-4">
+    <%= form_with url: data_points_path, method: :get, data: { 
+      date_range_target: "form",
+      turbo_frame: "data_points_chart"
+    } do |form| %>
+      <div class="flex space-x-4 items-end">
+        <div>
+          <%= form.label :start_date, "Start Date" %>
+          <%= form.date_field :start_date, 
+                             data: { 
+                               date_range_target: "startDate",
+                               action: "change->date-range#filter" 
+                             },
+                             value: params[:start_date] %>
+        </div>
+        
+        <div>
+          <%= form.label :end_date, "End Date" %>
+          <%= form.date_field :end_date, 
+                             data: { 
+                               date_range_target: "endDate",
+                               action: "change->date-range#filter" 
+                             },
+                             value: params[:end_date] %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+  <%= turbo_frame_tag "data_points_chart" do %>
+    <div class="bg-white p-4 rounded shadow">
+      <h2 class="text-lg font-semibold mb-4">Data Points Chart</h2>
+      <%= line_chart @data_points.pluck(:detected_at, :value) %>
+    </div>
+  <% end %>
+</div>
