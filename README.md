@@ -1,24 +1,34 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+#### Setup
 
-Things you may want to cover:
+Required ruby version: 3.3.x
 
-* Ruby version
+```bash
+# Install dependencies
+bundle install
 
-* System dependencies
+# Prepare the database
+rails db:create db:migrate db:seed
 
-* Configuration
+# Start the server
+rails s
 
-* Database creation
+# If needed start tailwindcss
+rails tailwindcss:watch
+```
 
-* Database initialization
+The app runs on port 3000 by default.
 
-* How to run the test suite
+#### Tests
 
-* Services (job queues, cache servers, search engines, etc.)
+```bash
+# Run all tests
+bundle exec rspec
+```
 
-* Deployment instructions
+#### Goals
 
-* ...
+- [ ] All tests pass
+- [ ] All the stubs in data_points/index are implemented
+- [ ] Cleanup and refactor models and controllers
