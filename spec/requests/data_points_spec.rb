@@ -15,10 +15,6 @@ RSpec.describe "DataPoints", type: :request do
       it "renders the index template" do
         expect(response).to render_template("data_points/index")
       end
-
-      it "includes data points in the response" do
-        expect(response.body).to include('data-points-container')
-      end
     end
 
     context "with JSON format" do

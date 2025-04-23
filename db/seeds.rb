@@ -48,7 +48,6 @@ owners.each do |owner|
     FactoryBot.create(
       :data_point,
       owner: owner,
-      district: districts.sample,
       data_source: data_sources.sample,
       detected_at: Time.current + i.hours,
       value: rand(1.0..100.0)
