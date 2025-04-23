@@ -28,10 +28,16 @@
     <% end %>
   </div>
 
+  <!-- This smells -->
   <%= turbo_frame_tag "data_points_chart" do %>
     <div class="bg-white p-4 rounded shadow">
       <h2 class="text-lg font-semibold mb-4">Data Points Chart</h2>
       <%= line_chart @data_points.pluck(:detected_at, :value) %>
     </div>
   <% end %>
+
+  <div class="flex mt-4">
+    <!-- Pie Charts: data points by region and by province -->
+    <!-- pie_chart @data_points.... --->
+  </div>
 </div>
