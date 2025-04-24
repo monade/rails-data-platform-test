@@ -10,9 +10,7 @@ class DataPointsController < ApplicationController
     respond_to do |format|
       format.json { render json: @data_points, each_serializer: DataPointSerializer }
       format.html { render "data_points/index" }
-      format.turbo_stream { render turbo_stream: turbo_stream.replace("data_points_chart",
-                                   partial: "data_points/chart",
-                                   locals: { data_points: @data_points }) }
+      format.turbo_stream { render turbo_stream: turbo_stream.replace("data_points_chart", partial: "data_points/chart", locals: { data_points: @data_points }) }
     end
   end
 end

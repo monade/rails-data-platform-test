@@ -18,9 +18,9 @@ gem "stimulus-rails"
 # Use Active Model has_secure_password [https://guides.rubyonrails.org/active_model_basics.html#securepassword]
 # gem "bcrypt", "~> 3.1.7"
 
-gem 'chartkick'
+gem "chartkick"
 
-gem 'tailwindcss-rails'
+gem "tailwindcss-rails"
 
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
@@ -60,7 +60,7 @@ group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem "web-console"
   gem "rspec-rails", "~> 7.0.0"
-  gem 'debugbar'
+  gem "debugbar"
 end
 
 group :test do

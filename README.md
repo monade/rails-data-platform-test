@@ -11,11 +11,8 @@ bundle install
 # Prepare the database
 rails db:create db:migrate db:seed
 
-# Start the server
-rails s
-
-# If needed start tailwindcss
-rails tailwindcss:watch
+# Start the app
+foreman start
 ```
 
 The app runs on port 3000 by default.
@@ -27,8 +24,22 @@ The app runs on port 3000 by default.
 bundle exec rspec
 ```
 
-#### Goals
+#### Scenario
 
-- [ ] All tests pass
+A junior developer started working on a BI app for a company. The database schema was
+defined,
+and the developer was given a task to implement a few features.
+The developer spent a few hours working on the app, achieving some progress,
+but then was assigned to another project.
+
+Your task is to finish the work left undone and clean up the mess
+the junior developer left behind.
+
+- [ ] All tests green
 - [ ] All the stubs in data_points/index are implemented
 - [ ] Cleanup and refactor models and controllers
+
+Extra mile:
+
+- [ ] Test the frontend features
+- [ ] Implement filtering for all reasonable fields and relations
