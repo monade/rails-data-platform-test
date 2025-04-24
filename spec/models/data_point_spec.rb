@@ -65,7 +65,7 @@ RSpec.describe DataPoint, type: :model do
       24.times do |hour|
         @hourly_points[hour] = []
         10.times do |i|
-          value = hour * 10 + i + 1  # Different values for each point
+          value = hour * 10 + i + 1 # Different values for each point
           @hourly_points[hour] << create(:data_point, value: value, detected_at: @time_base + hour.hours + i.minutes)
         end
       end
@@ -110,7 +110,7 @@ RSpec.describe DataPoint, type: :model do
         expect(result[hour_key]).to eq(expected_avg)
       end
 
-      expect(result.size).to eq(24)  # Should have exactly 24 hours
+      expect(result.size).to eq(24) # Should have exactly 24 hours
     end
 
     it "aggregates data by days" do
@@ -208,8 +208,8 @@ RSpec.describe DataPoint, type: :model do
     end
 
     it "filters by parent owner" do
-      expect(DataPoint.by_parent_owner(@parent_owner)).to include(@data_point1)
-      expect(DataPoint.by_parent_owner(@parent_owner)).not_to include(@data_point2, @data_point3)
+      expect(DataPoint.by_owner(@parent_owner)).to include(@data_point1)
+      expect(DataPoint.by_owner(@parent_owner)).not_to include(@data_point2, @data_point3)
     end
   end
 end
