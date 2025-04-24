@@ -61,6 +61,7 @@ group :development do
   gem "web-console"
   gem "rspec-rails", "~> 7.0.0"
   gem "debugbar"
+  gem "foreman"
 end
 
 group :test do
