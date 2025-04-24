@@ -34,7 +34,7 @@ RSpec.describe "DataPoints", type: :request do
 
       it "includes relevant data point attributes" do
         body = JSON.parse(response.body)
-        expect(body.first).to include('id', 'value', 'detected_at')
+        expect(body.first).to include("id", "value", "detected_at", "owner_name", "data_source_name", "data_source_kind_name")
       end
     end
 
@@ -84,7 +84,7 @@ RSpec.describe "DataPoints", type: :request do
         time_base = Time.current.beginning_of_hour
         points = []
         5.times do |i|
-          points << create(:data_point, value: i+1, detected_at: time_base + i.minutes)
+          points << create(:data_point, value: i + 1, detected_at: time_base + i.minutes)
         end
 
         get data_points_path, params: { granularity: 'hour' }, as: :json
